@@ -54,7 +54,7 @@ iniciar.addEventListener("click", function(){
         console.log(error)
     });
 
-    axios.get("http://localhost:4567/preguntas")
+    axios.get("https://sw-forms.herokuapp.com/preguntas")
     .then(function (response) {
         console.log(response.data);
         preguntas(response.data);

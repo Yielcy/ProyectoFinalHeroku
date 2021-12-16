@@ -41,7 +41,7 @@ function agregar() {
         resp.textContent = txtRespuesta.value;
         
         //Agrega la respuesta a la base de datos
-        axios.post("http://localhost:4567/respuesta", {
+        axios.post("https://sw-forms.herokuapp.com/respuesta", {
         respuesta : document.getElementById("respuesta").value,
         valor : valor,
         idpregunta : idpregunta
@@ -84,7 +84,7 @@ function agregar() {
 
 //Enviar preguntas a la base de datos
 btnAgregar.addEventListener("click", function(){
-    axios.post("http://localhost:4567/pregunta", {
+    axios.post("https://sw-forms.herokuapp.com/pregunta", {
         pregunta : document.getElementById("pregunta").value,
         video : TmpPath 
     }).then(function (response) {
