@@ -18,6 +18,8 @@ public class App
     {
         System.out.println( "Proyecto Final de Sistemas Web" );
 
+        port(getHerokuAssignedPort());
+
         staticFiles.location("/");
 
 
@@ -39,7 +41,7 @@ public class App
         before((req, res) -> res.header("Access-Control-Allow-Origin", "*"));
 
         get("/", (req, res) -> {
-            res.redirect("inicio.html");
+            res.redirect("login.html");
             return null;
         });
         
@@ -122,6 +124,14 @@ public class App
 
 
 
+    }
+
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 
 }
